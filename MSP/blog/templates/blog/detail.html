@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block Title%}
+	{{judul}}
+{% endblock Title%}
+
+{% block pageTitle%}
+	{{judul}}
+{% endblock pageTitle%}
+
+{% block Content%}
+	<h1>{{Posts.judul}}</h1>
+	<p>{{Posts.body}}</p>
+	<br>
+	<p>{{Posts.category}}</p>
+	<p>{{Posts.publish}}</p>
+{% endblock Content%}

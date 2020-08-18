@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block Title%}
+	{{judul}}
+{% endblock Title%}
+
+{% block pageTitle%}
+	{{judul}}
+{% endblock pageTitle%}
+
+{% block Content%}
+	{{content}}
+
+	{% for post in Posts %}
+		<a href="/blog/post/{{post.slug}}">
+			<h1>{{post.judul}}</h1>
+		</a>
+		
+		<p>{{post.publish}}</p>
+	{% endfor %}
+
+{% endblock Content%}
