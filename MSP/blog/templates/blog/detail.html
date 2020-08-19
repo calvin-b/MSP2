@@ -9,6 +9,20 @@
 {% endblock pageTitle%}
 
 {% block Content%}
+	
+	<ul class="nav">
+
+		<li class="nav-item">
+			<a class="nav-link" href="/blog">
+				All Post
+			</a>
+		</li>
+
+	{% for dataCategory in Categories %}
+		<li class="nav-item"><a class="nav-link" href="/blog/category/{{dataCategory.category}}">{{dataCategory.category}}</a></li>
+	{% endfor %}
+	</ul>
+
 	<h1>{{Posts.judul}}</h1>
 	<p>{{Posts.body}}</p>
 	<br>

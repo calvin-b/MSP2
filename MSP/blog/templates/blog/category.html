@@ -9,8 +9,6 @@
 {% endblock pageTitle%}
 
 {% block Content%}
-	{{content}}
-
 	<ul class="nav">
 
 		<li class="nav-item">
@@ -24,11 +22,13 @@
 	{% endfor %}
 	</ul>
 
+	<h1>Category: {{cf}}</h1>
 	{% for post in Posts %}
 		<a href="/blog/post/{{post.slug}}">
-			<h1>{{post.judul}}</h1>
+			<h2>{{post.judul}}</h2>
 		</a>
-		
+		<p>{{post.body|truncatechars:20}}</p>
+		<br>
 		<p>{{post.publish}}</p>
 	{% endfor %}
 
