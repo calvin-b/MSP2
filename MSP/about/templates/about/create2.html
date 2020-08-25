@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block Title%}
+	{{judul}}
+{% endblock Title%}
+
+{% block pageTitle%}
+	{{subjudul}}
+{% endblock pageTitle%}
+
+{% block Content%}
+	
+
+	<a href="/about/">Back</a>
+	<br>
+	<h2>{{content}}</h2>
+	<h3>{{error}}</h3>
+
+	<form method="post">
+		{% csrf_token %}
+		{% for form in contact_form %}
+			<div class="form-group">
+				{{form.label}}
+				{{form}}
+			</div>
+
+		{% endfor %}
+		<br>
+		<button type="Submit">Submit</button>
+	</form>
+{% endblock Content%}

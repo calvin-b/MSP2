@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block Title%}
+	{{judul}}
+{% endblock Title%}
+
+{% block pageTitle%}
+	{{subjudul}}
+{% endblock pageTitle%}
+
+{% block Content%}
+	
+
+	<a href="/about/">Back</a>
+	<br>
+	<h1>{{content}}</h1>
+	<h3>Error: {{error}}</h3>
+
+	<form method="post">
+		{% csrf_token %}
+		<div class="form-group">
+			{{contact_form.nama.label_tag}}
+			{{contact_form.nama}}
+		</div>
+
+		<div class="form-group">
+			{{contact_form.gender.label_tag}}
+			{% for comp in contact_form.gender %}
+				<div class="form-check">
+					{{comp.tag}}
+					<label for="{{comp.id_for_labe}}" class="form-check-label">
+						{{comp.choice_label}}
+					</label>
+				</div>
+				
+			{% endfor %}
+		</div>
+
+		<div class="form-group">
+			{{contact_form.alamat.label_tag}}
+			<div class="form-row">
+				{{contact_form.alamat}}				
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			{{contact_form.tanggal_lahir.label_tag}}
+			<div class="form-row">
+				{{contact_form.tanggal_lahir}}				
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			{{contact_form.email.label_tag}}
+			<div class="form-row">
+				{{contact_form.email}}				
+			</div>
+
+		</div>
+
+		<br>
+		<button class="btn btn-primary" type="Submit">Submit</button>
+	</form>
+{% endblock Content%}

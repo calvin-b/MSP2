@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block Title%}
+	{{judul}}
+{% endblock Title%}
+
+{% block pageTitle%}
+	{{subjudul}}
+{% endblock pageTitle%}
+
+{% block Content%}
+	<h1>{{content}}</h1>
+	<br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">No</th>
+				<th scope="col">Nama</th>
+				<th scope="col">Jenis Kelamin (P/W)</th>
+				<th scope="col">Tanggal Lahir</th>
+				<th scope="col">E-Mail</th>
+				<th scope="col">Alamat</th>
+				<th scope="col">Delete</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for comp in contact_model %}
+				<tr>
+					<th scope="row">{{forloop.counter}}</th>
+					<td> <a href="{% url 'about:update' comp.id %}">{{comp.nama}}</a></td>
+					<td>{{comp.gender}}</td>
+					<td>{{comp.tanggal_lahir}}</td>
+					<td>{{comp.email}}</td>
+					<td>{{comp.alamat}}</td>
+					<td><a class="btn btn-danger" href="{% url 'about:delete' comp.id %}">Delete</a></td>
+				</tr>
+
+			{% endfor %}
+		</tbody>
+		
+	</table>
+	<a class="btn btn-primary" href="{% url 'about:create_contact' %}">Add Data</a>
+
+
+
+
+
+
+{% endblock Content%}

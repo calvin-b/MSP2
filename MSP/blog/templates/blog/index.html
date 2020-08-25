@@ -14,18 +14,18 @@
 	<ul class="nav">
 
 		<li class="nav-item">
-			<a class="nav-link" href="/blog">
+			<a class="nav-link" href="{% url 'blog:index' %}">
 				All Post
 			</a>
 		</li>
 
 	{% for dataCategory in Categories %}
-		<li class="nav-item"><a class="nav-link" href="/blog/category/{{dataCategory.category}}">{{dataCategory.category}}</a></li>
+		<li class="nav-item"><a class="nav-link" href="{% url 'blog:category' cinput=dataCategory.category %}">{{dataCategory.category}}</a></li>
 	{% endfor %}
 	</ul>
 
 	{% for post in Posts %}
-		<a href="/blog/post/{{post.slug}}">
+		<a href="{% url 'blog:detail' sinput=post.slug %}">
 			<h1>{{post.judul}}</h1>
 		</a>
 		

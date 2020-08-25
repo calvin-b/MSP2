@@ -11,19 +11,30 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 	  		<ul class="navbar-nav ml-auto">
 	  			<li class="nav-item">
-	  				<a class="nav-link" href="/">
+	  				<a class="nav-link" href="{% url 'index' %}">
 	  					Home
 	  				</a>
 	  			</li>
 	  		
 	  			<li class="nav-item">
-	  				<a class="nav-link" href="/blog">
+	  				<a class="nav-link" href="{% url 'blog:index' %}">
 	  					Blog
 	  				</a>
 	  			</li>
 
+	  			<li class="nav-item dropdown">
+
+			        <a class="nav-link dropdown-toggle" href="{% url 'about:index' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			          About
+			        </a>
+	  				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			          <a class="dropdown-item" href="{% url 'about:index' %}">All</a>
+			          <a class="dropdown-item" href="{% url 'about:create_contact' %}">Create Contact</a>
+			        </div>
+	  			</li>
+
 	  			<li class="nav-item">
-	  				<a class="nav-link" href="/admin">
+	  				<a class="nav-link" href="{% url 'admin:index' %}">
 	  					Admin
 	  				</a>
 	  			</li>
